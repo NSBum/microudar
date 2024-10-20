@@ -15,7 +15,7 @@ setup(
     },
     description='A microservice for applying Russian syllabic stress marks based on StressRNN',
     author='Alan K. Duncan',
-    author_email="microudar+alan@fastmail.com',
+    author_email='microudar+alan@fastmail.com',
     url='https://github.com/NSBum/microudar',
 )
 
