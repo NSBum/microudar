@@ -8,8 +8,8 @@ setup(
         'zmq',
         'stressrnn @ git+https://github.com/Desklop/StressRNN'
     ],
-    description='A microservice for applying Russian syllabic stress marks',
+    description='A microservice for applying Russian syllabic stress marks based on StressRNN',
     author='Alan K. Duncan',
     author_email="microudar+alan@fastmail.com',
-    url = '',
+    url = 'https://github.com/NSBum/microudar',
 )
