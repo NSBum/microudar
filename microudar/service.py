@@ -2,9 +2,30 @@
 
 import zmq
 import json
+import os
+import requests
 from stressrnn import StressRNN
 
-stress_rnn = StressRNN()
+# URL of the exceptions file
+EXCEPTIONS_URL = "https://ojisanshare.s3.amazonaws.com/stressrnn/exceptions.txt"
+EXCEPTIONS_PATH = "/tmp/exceptions.txt"  # Temporary path to store the downloaded file
+
+def download_exceptions_file():
+    try:
+        # Download the file
+        response = requests.get(EXCEPTIONS_URL)
+        response.raise_for_status()  # Raise an error for bad status codes
+        with open(EXCEPTIONS_PATH, 'wb') as file:
+            file.write(response.content)
+        print(f"Downloaded exceptions file to {EXCEPTIONS_PATH}")
+    except Exception as e:
+        print(f"Error downloading exceptions file: {e}")
+
+# Download the exceptions file before starting the service
+download_exceptions_file()
+
+# Initialize StressRNN with the downloaded exceptions file
+stress_rnn = StressRNN(EXCEPTIONS_PATH)
 
 context = zmq.Context()
 socket = context.socket(zmq.REP)
