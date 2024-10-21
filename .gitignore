@@ -1,0 +1,8 @@
+# Ignore build artifacts
+/build/
+/dist/
+/microudar.egg-info/
+*.egg
+*.egg-info
+*.pyc
+__pycache__/
